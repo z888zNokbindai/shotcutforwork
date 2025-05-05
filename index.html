@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NES Shortcut for Services</title>
+  <link rel="stylesheet" href="main.css">
+
+  <!-- เพิ่ม Font Awesome ไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <h1>ขี้เกียจทำงาน.com/ยังงี้ต้องลาออก</h1>
+  <div id="clock" class="clock"></div>
+
+  <div class="navbar">
+    <a href="https://www.google.com" target="_blank"><i class="fas fa-search"></i> Google</a>
+    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://chat.openai.com" target="_blank"><i class="fab fa-chatgpt"></i> ChatGPT</a>
+    <a href="https://eshop-prices.com/?currency=THB" target="_blank"><i class="fas fa-shopping-cart"></i> E-Shop</a>
+  </div>
+
+  <div class="main">
+    <h3>ใช้ปุ่ม Ctrl + W เพื่อปิด Tab</h3>
+  </div>
+
+  <div class="menu">
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/menu" target="_blank">
+      <div class="btn"><i class="fas fa-list"></i> NESCEN</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/manage_machine" target="_blank">
+      <div class="btn"><i class="fas fa-cogs"></i> พิมพ์ Machine NO.</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/register" target="_blank">
+      <div class="btn"><i class="fas fa-edit"></i> Regis งานซ่อม</div>
+    </a>
+  </div>
+
+  <div class="menu">
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/admindashbord" target="_blank">
+      <div class="btn"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/receive" target="_blank">
+      <div class="btn"><i class="fas fa-hands-helping"></i> ช่างรับงาน</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/resolve" target="_blank">
+      <div class="btn"><i class="fas fa-check-circle"></i> ช่างตัดสินใจ</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/qc" target="_blank">
+      <div class="btn"><i class="fas fa-clipboard-check"></i> QC</div>
+    </a>
+
+    <a href="https://www.advice.co.th/advicedealer" target="_blank">
+      <div class="btn"><i class="fas fa-box"></i> สั่งของ (Advice Dealer)</div>
+    </a>
+  </div>
+
+  <div class="menu">
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/request_sparepart" target="_blank">
+      <div class="btn"><i class="fas fa-exchange-alt"></i> ยืม 001 to 042</div>
+    </a>
+    <a href="https://branch.nescen.in.th/55000037/index.php/shop/branch_service/approve_sparepart" target="_blank">
+      <div class="btn"><i class="fas fa-check-double"></i> อนุมัติ 001 to 042</div>
+    </a>
+  </div>
+
+  <div class="menu">
+    <a href="warranty.html" target="_blank">
+      <div class="btn"><i class="fas fa-shield-alt"></i> Warranty Check</div>
+    </a>
+  </div>
+
+  <div class="texta">
+    <textarea placeholder="ใช้อะไรก็ใช้"></textarea>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('th-TH', { hour12: false });
+      document.getElementById('clock').textContent = `🕒 เวลา: ${time}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // เรียกทันทีตอนโหลด
+  </script>
+
+  <script>
+    const dateNow = new Date().toLocaleDateString('th-TH', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    document.getElementById("clock").insertAdjacentHTML("beforebegin", `<div style="font-size: 20px; margin-top: 10px;">📅 วันนี้: ${dateNow}</div>`);
+  </script>
+
+  <script>
+    const textarea = document.querySelector("textarea");
+    textarea.value = localStorage.getItem("notes") || "";
+    textarea.addEventListener("input", () => {
+      localStorage.setItem("notes", textarea.value);
+    });
+  </script>
+</body>
+</html>
